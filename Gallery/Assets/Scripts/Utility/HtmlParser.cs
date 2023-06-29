@@ -7,13 +7,16 @@ using UnityEngine.Networking;
 
 namespace Utility
 {
-    public class HtmlParser
+    public static class HtmlParser
     {
-        public static IEnumerator GetText(string url, Action<string> onComplete)
+        public static IEnumerator GetText(string url, Action<string> onSucces)
         {
             var request = UnityWebRequest.Get(url);
-            yield return request.Send();
-            onComplete?.Invoke(request.downloadHandler.text);
+            yield return request.SendWebRequest();
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                onSucces.Invoke(request.downloadHandler.text);
+            }
         }
 
         public static IReadOnlyList<string> GetLinks(string html)
