@@ -14,7 +14,7 @@ namespace Gallery
         [SerializeField] [NotNull] private Transform containter;
         [SerializeField] [NotNull] private UnityEvent onLoadFailed;
         [SerializeField] [NotNull] private UnityEvent onLoadSuccess;
-        
+
         private const string ResourceLink = "http://data.ikppbb.com/test-task-unity-data/pics/";
         private const string BaseUrl = "http://data.ikppbb.com";
         private IReadOnlyList<string> imagesLinks;
@@ -26,6 +26,7 @@ namespace Gallery
             {
                 onLoadSuccess.Invoke();
             }
+
             StartCoroutine(SetupLinks());
         }
 

@@ -8,9 +8,9 @@ namespace Gallery
     {
         private static Dictionary<string, Texture> images = new();
         private static Texture chosenImage;
-        public static  Texture ChosenImage => chosenImage;
+        public static Texture ChosenImage => chosenImage;
         private static ImageCache instance;
-            
+
         private void Awake()
         {
             if (instance == null)
@@ -24,7 +24,7 @@ namespace Gallery
         {
             chosenImage = images[link];
         }
-        
+
         public static void CacheImage(Texture texture, string link)
         {
             if (!images.ContainsKey(link))
@@ -34,8 +34,7 @@ namespace Gallery
         }
 
         public static Texture GetImage(string link) => images.ContainsKey(link) ? images[link] : null;
-        
+
         public static bool IsEmpty() => !images.Any();
     }
 }
-

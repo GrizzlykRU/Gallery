@@ -35,6 +35,7 @@ namespace MainMenu
                 var delay = Random.Range(minProgressDelay, maxProgressDelay);
                 yield return new WaitForSeconds(delay);
             }
+
             animator.SetTrigger(CloseAnimationHash);
             yield return new WaitForSeconds(delayBeforeClose);
             loadSceneAsync.allowSceneActivation = true;
